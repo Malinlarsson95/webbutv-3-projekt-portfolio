@@ -1,3 +1,37 @@
+<?php
+/*Starta session*/
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+/*Om session för "loggedin" finns skickas man till loggedin.php-filen*/
+if(isset($_SESSION['loggedin'])) {
+    header("location: loggedin.php");
+}
+//för output felmeddelande
+$message = "";
+
+/*Kontroll om användarnamn och lösenord är korrekt.*/
+if(isset($_POST['username'])) {
+    /*Lagrar username och password i variabler*/
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    /*Kontroll om username är admin och password är password*/
+    if($username == "admin" && $password == "password") {
+        /*En session "loggedin" skapas*/
+        $_SESSION['loggedin'] = $username;
+        /*Skickar vidare till loggedin.php-sidan*/
+        header("location: loggedin.php");
+        
+    } else {
+        /*Skriver ut felmeddelande*/
+        $message = '<p id="wrongmessage">Felaktigt användarnamn eller lösenord</p>';
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -12,6 +46,7 @@
     <script src="https://kit.fontawesome.com/f02302bbd8.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!--======HEADER======-->
     <header>
         <img src="images/portrait.png" alt="porträtt av Malin Larsson" id="portrait">
         <h1>Malin Larsson</h1>
@@ -30,7 +65,7 @@
                 <div class="line"></div>
                 <p>
                     <span class="bold">Födelsedatum:</span>
-                    <span class="light"id="birthday">29 Oktober 1995</span>
+                    <span class="light" id="birthday">29 Oktober 1995</span>
                 </p>
                 <div class="line"></div>
                 <p>
@@ -158,8 +193,8 @@
                 <div class="line lastline"></div>
             </div>
             </article>
+            <!--Section "Design erfarenheter"-->
             <article class="sideArtFour">
-                <!--Section "Design erfarenheter"-->
                 <div class="makeTheMarginSmaller">
                 <h2>Design</h2>
                 <div class="line firstline"></div>
@@ -202,28 +237,20 @@
         <!--======MAINCONTENT======-->
         <div id="maincontent">
             <article class="mainArt" id="mainArtOne">
-                <h2>Om mig</h2>
-                <p>
-                    Nulla purus massa, pellentesque ut convallis eget, fermentum eget ex. Aliquam magna nisi, imperdiet ac imperdiet ac, imperdiet vitae neque. Vestibulum justo mauris, tincidunt at libero id, pulvinar posuere est. Aenean non nunc justo. Cras placerat mauris mauris, vel congue ex tempus eu. Donec condimentum elementum ante, vitae malesuada ligula finibus vel. Morbi sagittis mi vel leo mattis elementum. Praesent vestibulum purus eu sapien laoreet, in dapibus velit elementum. Mauris euismod cursus sagittis. Pellentesque laoreet dui eros, dignissim aliquam diam condimentum et. Nam quis orci vehicula, faucibus ante sed, sagittis metus.
-                </p>
-            </article>
-            <article class="mainArt" id="mainArtTwo">
-                <h2>Studier</h2>
-                <!--
-                    HERE WILL STUDIES FROM DATABASE BE WRITTEN
-                -->   
-            </article>
-            <article class="mainArt" id="mainArtThree">
-                <h2>Arbeten</h2>
-                <!--
-                    HERE WILL WORKS FROM DATABASE BE WRITTEN
-                -->  
-            </article>
-            <article class="mainArt" id="mainArtFour">
-                <h2>Skapade webbsidor</h2>
-                <!--
-                    HERE WILL WEBSITES FROM DATABASE BE WRITTEN
-                -->  
+                <h2>Logga in</h2>
+                <div class="mainboxes"> 
+                    <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+                        <p>Användarnamn:<p> 
+                        <input type="text" name="username" id="username" />
+                        <p>Lösenord:<p> 
+                        <input type="text" name="password" id="password" /> <br>
+
+                        <input type="submit" name="login" value="Logga in" id="loginButton" class="okButton"/>
+                    </form>
+                    <?php
+                        echo $message;
+                    ?>
+                </div>
             </article>
         </div>
     </div>
@@ -234,9 +261,6 @@
             <li><i class="fa-li fa fas fa-phone"></i>072-5501175</li>
             <li><i class="fa-li fa fas fa-envelope"></i><a href="mala1812@student.miun.se">mala1812@student.miun.se</a></li>
           </ul>
-
         </footer>
-    </div>
-    <script src="js/main.js"></script>
 </body>
 </html>

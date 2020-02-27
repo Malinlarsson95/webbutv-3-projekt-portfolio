@@ -90,6 +90,7 @@ switch($method) {
         $studies->educationName = $data->educationName;
         $studies->startDate = $data->startDate;
         $studies->endDate = $data->endDate;
+        $studies->_id = $data->_id;
 
         //Kör create-metoden i klassen, returnerar den true har data lagts in i databasen
         if($studies->update()) {

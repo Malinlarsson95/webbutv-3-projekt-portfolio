@@ -21,7 +21,7 @@ class Websites {
     //READ - hämtar all data
     public function read() {
         //SQL-fråga i variabel
-        $query = 'SELECT _id, siteTitle, siteUrl, siteDescription, createdDate FROM ' . $this->table;
+        $query = 'SELECT _id, siteTitle, siteUrl, siteDescription, createdDate FROM ' . $this->table . ' ORDER BY _id DESC';
 
         //Förbereder att skicka SQL-fråga
         $stmt = $this->conn->prepare($query);
@@ -71,7 +71,7 @@ class Websites {
 
     public function update() {
         //SQL-fråga för att lägga till data
-        $query = 'INSERT INTO ' . $this->table . ' SET
+        $query = 'UPDATE ' . $this->table . ' SET
         siteTitle = :siteTitle,
         siteUrl = :siteUrl,
         siteDescription = :siteDescription,

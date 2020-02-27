@@ -86,6 +86,7 @@ switch($method) {
         $data = json_decode(file_get_contents("php://input"));
 
         // Tar datan från variabeln och lägger in i klassens variablar
+        $works->_id = $data->_id;
         $works->workTitle = $data->workTitle;
         $works->workPlace = $data->workPlace;
         $works->startDate = $data->startDate;

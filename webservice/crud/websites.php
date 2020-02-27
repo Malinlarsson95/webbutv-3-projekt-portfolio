@@ -86,6 +86,7 @@ switch($method) {
         $data = json_decode(file_get_contents("php://input"));
 
         // Tar datan från variabeln och lägger in i klassens variablar
+        $websites->_id = $data->_id;
         $websites->siteTitle = $data->siteTitle;
         $websites->siteUrl = $data->siteUrl;
         $websites->siteDescription = $data->siteDescription;

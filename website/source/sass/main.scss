@@ -1,0 +1,601 @@
+/*===COLOR VARIABLES===*/
+$headerbg: #D8D2C2;
+$darktext: #393939;
+$lighttext: #858585;
+$sidebarbg: #E1E1E1;
+$h2greenbg: #D3E1D5;
+$dotlightbg: #CBCBCB;
+$dotgreenbg: #849E88;
+
+/*===MEDIA QUERIES SIZES===*/
+$breakpoint-tablet: 768px;
+$breakpoint-monitor: 1024px;
+$breakpoint-largemonitor: 1200px;
+
+/*===MIXINS FONTS===*/
+@mixin h2verdana {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: normal;
+}
+@mixin h3verdana {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+@mixin kazimirMedium {
+    font-family: kazimir, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+@mixin kazimirLight {
+    font-family: kazimir, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+}
+@mixin kazimirRegular {
+    font-family: kazimir, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+/*===HEADER-SECTION===*/
+body {
+    margin: 0;
+    position: relative;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+        background-image: url("../images/background-smallscreen.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        #wrapper {
+            margin: 0 auto;
+            max-width: 542px;
+
+            -webkit-box-shadow: 0px 0px 5px 1px rgba(82,82,82,0.6);
+            -moz-box-shadow: 0px 0px 5px 1px rgba(82,82,82,0.6);
+            box-shadow: 0px 0px 5px 1px rgba(82,82,82,0.6);
+        }
+    }
+    /*WRAPPER - SMALL MONITOR*/
+    @media screen and (min-width: $breakpoint-monitor) {
+        #wrapper {
+            max-width: 650px;
+        }
+    }
+    /*WRAPPER - LARGE MONITOR*/
+    @media screen and (min-width: $breakpoint-largemonitor) {
+        background-image: url("../images/background-bigscreen.jpg");
+
+        #wrapper {
+        max-width: 1150px;
+        padding: 0;
+        margin: -40px auto 0;
+        display: flex;
+        }
+    }
+}
+/*====HEADER====*/
+header {
+    margin: 0;
+    width: 100%;
+    background-color: $headerbg;
+    display: flex;
+    max-height: 118px;
+    position: relative;
+    z-index: 10;
+
+    #portrait {
+        width: 100%;
+        height: 100%;
+        max-width: 108px;
+        margin: 5px 3% 5px 5%;
+    }
+    h1 {
+        font-family: lust, serif;
+        font-style: normal;
+        font-weight: 400;
+        color: white;
+        font-size: 2.5em;
+        text-align: center;
+        line-height: 1em;
+        margin-top: 5%;
+    }
+    /*HEADER - TABLET*/
+    @media screen and (min-width: $breakpoint-tablet) {
+            max-height: 150px;
+            position: relative;
+            z-index: 10;
+
+        #portrait {
+            width: 100%;
+            height: 100%;
+            max-width: 140px;   
+            margin: 5px 0% 5px 16%;
+        }
+        h1 {
+            margin: 7% 0 0 5%;
+            font-size: 2.8em;
+        }
+    }
+    /*HEADER - SMALL MONITOR*/
+    @media screen and (min-width: $breakpoint-monitor) {
+        #portrait {
+            margin: 5px 0% 5px 24%;
+        }
+        h1 {
+            margin: 5% 0 0 4%;
+        }
+    }
+    /*HEADER - LARGE MONITOR*/
+    @media screen and (min-width: $breakpoint-largemonitor) {
+        max-height: 114px;
+        max-width: 1150px;
+        margin: 0 auto;
+        top: 150px;
+
+        #portrait {
+            max-width: 210px;  
+            margin: 0 0 0 9%; 
+            position: relative;
+            top: -43px;
+        }
+        h1 {
+            margin: 3% auto;
+            font-size: 3em;
+        }
+    }
+}
+/*====SIDEBAR====*/
+#sidebar {
+    background-color:$sidebarbg;
+    position: relative;
+    padding: 5% 0 0.5% 0;
+    /*Design för text*/
+    h2 {
+        background-color: white;
+        color: $darktext;
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+        padding: 1.2% 0;
+        @include h2verdana;
+    }
+    p {
+        margin: 1% auto;
+        display: block;
+        width: 90%;
+
+        a{
+            color: $darktext;
+        }
+        a:hover {
+            color: $lighttext;
+        }
+    }
+    .bold {
+        @include kazimirMedium;
+        font-size: 1.3em; 
+        margin: 0 0 0 1%;
+    }
+    .light {
+        @include kazimirLight;
+        font-size: 1.3em;
+    }
+    /*Ändrar margin så att element flyttar sig en bit till höger*/
+    #name {
+        margin: 0 0 0 92px;
+    }
+    #birthday {
+        margin: 0 0 0 12px;
+    }
+    #country {
+        margin: 0 0 0 27px;
+    }
+    #language {
+        margin: 0 0 0 90px;
+    }
+    #driverlicense {
+        margin: 0 0 0 70px;
+    }
+    #phone {
+        margin: 0 0 0 75px;
+    }
+    #email {
+        margin: 0 0 0 90px;
+    }
+    #adress {
+        margin: 0 0 0 88px;
+    }
+    #city {
+        margin: 0 0 0 120px;
+    }
+    /*Design för linjen mellan elementen*/
+    .line {
+        height: 1px;
+        width: 90%;
+        background-color: #CCCCCC;
+        margin: 1.2% auto;
+    }
+    /*Ökar top och bottom margin på översta och nedersta linjen*/
+    .firstline {
+        margin-top: 6%;
+    }
+    .lastline {
+        margin-bottom: 6%;
+    }
+    /*===SIDEBAR - TABLET===*/
+    @media screen and (min-width: $breakpoint-tablet) {
+        margin: 0 auto;
+        max-width: 542px;
+        padding: 5% 0 0.5% 0;
+
+    p {
+        width: 75%;
+    } 
+    .line {
+        width: 75%;
+    }      
+    .bold {
+        margin: 0 0 0 5%;
+    }
+    #name {
+        margin: 0 0 0 132px;
+    }
+    #birthday {
+        margin: 0 0 0 52px;
+    }
+    #country {
+        margin: 0 0 0 67px;
+    }
+    #language {
+        margin: 0 0 0 130px;
+    }
+    #driverlicense {
+        margin: 0 0 0 110px;
+    }
+    #phone {
+        margin: 0 0 0 119px;
+    }
+    #email {
+        margin: 0 0 0 130px;
+    }
+    #adress {
+        margin: 0 0 0 128px;
+    }
+    #city {
+        margin: 0 0 0 160px;
+    }
+    }
+    /*SIDEBAR - SMALL MONITOR*/
+    @media screen and (min-width: $breakpoint-monitor) {
+        margin: 0 auto;
+        max-width: 650px;
+        padding: 5% 0 0.5% 0;
+
+        h2 {
+            width: 85%;
+        } 
+        .firstline {
+            margin-top: 6%;
+        }
+        .lastline {
+            margin-bottom: 6%;
+        }
+    }
+    /*SIDEBAR - LARGE MONITOR*/
+    @media screen and (min-width: $breakpoint-largemonitor) {
+        max-width: 35%;
+        width: 1077px;
+        padding: 26% 0 0.5% 0;
+        margin: 0 auto 0;
+
+        h2 {
+            width: 90%;
+        }
+        .bold {
+            margin: 0 0 0 1%;
+        }
+        p {
+            width: 90%;
+        } 
+        .line {
+            width: 90%;
+        }  
+
+        #name {
+            margin: 0 0 0 92px;
+        }
+        #birthday {
+            margin: 0 0 0 12px;
+        }
+        #country {
+            margin: 0 0 0 27px;
+        }
+        #language {
+            margin: 0 0 0 90px;
+        }
+        #driverlicense {
+            margin: 0 0 0 70px;
+        }
+        #phone {
+            margin: 0 0 0 75px;
+        }
+        #email {
+            margin: 0 0 0 90px;
+        }
+        #adress {
+            margin: 0 0 0 88px;
+        }
+        #city {
+            margin: 0 0 0 120px;
+        }
+    }
+}
+/*The DOTS in Sidebar*/
+.dots {
+    display: flex;
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: $dotlightbg;
+    margin: 0 5px;
+    position: relative;
+    top: -30px;
+    left: 60%;
+ }
+ /*MAKES THE DOTS GREEN*/
+ #HTMLDotOne,#HTMLDotTwo,#HTMLDotThree,#HTMLDotFour,#HTMLDotFive,#CSSDotOne,#CSSDotTwo,#CSSDotThree,#CSSDotFour, #JSDotOne,#JSDotTwo,#JSDotThree,#PHPDotOne,#PHPDotTwo,#PHPDotThree,#PHPDotFour,#WPDotOne,#WPDotTwo,#WPDotThree,#WPDotFour,
+ #MySQLDotOne,#MySQLDotTwo,#MySQLDotThree,#CSharpDotOne,#CSharpDotTwo,#CSharpDotThree,#PSDotOne,#PSDotTwo,#PSDotThree, #PSDotFour, #XDDotOne,#XDDotTwo,#XDDotThree, #XDDotFour, #XDDotFive,#AIDotOne,#AIDotTwo,#AIDotThree
+  {
+     background-color: $dotgreenbg;
+ }
+}
+
+.makeTheMarginSmaller {
+    .line {
+        margin: -3% auto 1.2%;
+    }
+    .firstline {
+        margin-top: 6%;
+    }
+    .lastline {
+        margin-bottom: 6%;
+    }
+}
+
+/*===MAINCONTENT===*/
+#maincontent {
+    h2 {
+        background-color: $h2greenbg;
+        color: $darktext;
+        text-align: center;
+        width: 90%;
+        margin: 5% auto 2%;
+        padding: 1.2% 0;
+        @include h2verdana;
+    }
+    p {
+        @include kazimirLight;
+        font-size: 1.2em;
+        width: 90%;
+        margin: 0 auto;
+        color: $lighttext;
+    }
+
+    /*Boxes with the database information*/
+    .mainboxes {
+        color: $lighttext;
+        border: 1px solid #DCDCDC;
+        margin: 3% auto;
+        width: 90%;
+        position: relative;
+        padding: 1% 0 1% 0;
+
+        ul {
+            margin: 1% 0 1% 18%;
+
+            li {
+                margin-top: 0.5%;
+            }
+        }
+        .header3 {
+            @include kazimirMedium;
+            text-transform: uppercase;
+            font-size: 1.4em;
+        }
+        .header4 {
+            @include kazimirRegular;
+            text-transform: uppercase;
+            font-size: 1.3em;
+            
+            a{
+                color: $lighttext;
+            }
+            a:hover {
+                color: $darktext;
+            }
+        } 
+        .timestamp {
+            @include kazimirLight;
+            font-size: 1.3em;
+        }
+        .description {
+            text-align: center;
+        }
+        .fa-stack {
+            margin: 0 0 0 15%;
+        }
+    }
+    /*MAINCONTENT - TABLET*/
+    @media screen and (min-width: $breakpoint-tablet) {
+        margin: -5% auto 0;
+        padding: 5% 0 5% 0;
+        background-color: white;
+        max-width: 542px;
+
+        h2 {
+            margin: 4% auto 2%;
+        }
+        .mainboxes {
+            width: 75%;
+        }
+    }
+    /*MAINCONTENT - SMALL MONITOR*/
+    @media screen and (min-width: $breakpoint-monitor) {
+        h2 {
+            width: 85%;
+        }
+        p {
+            width: 85%;
+        }
+        max-width: 650px;
+        .mainboxes {
+            width: 70%;
+        }
+    }
+    /*MAINCONTENT - LARGE MONITOR*/
+    @media screen and (min-width: $breakpoint-largemonitor) {
+        width: 1077px;
+        max-width: 65%;
+        margin: 0 auto 0;
+        padding: 19% 0 0.5% 0;
+
+        .mainboxes {
+            width: 65%;
+
+            ul {
+                margin: 1% 0 1% 25%;
+            }
+        }
+    }
+}
+/*===FOOTER===*/
+footer {
+width: 100%;
+background-color: $headerbg;
+padding: 1% 0 1% 0;
+color: $darktext;
+
+    ul {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+     li {
+        font-size: 1.2em;
+        width: 300px;
+        margin: 1% auto;
+
+        a{
+            color: $darktext;
+        }
+        a:hover {
+            color: $lighttext;
+        }
+     }   
+    }
+    @media screen and (min-width: $breakpoint-tablet) {
+        margin: -2% 0 0 0;
+    }
+    @media screen and (min-width: $breakpoint-largemonitor) {
+        padding: 1% 0;
+        margin: 0 0 0 0;
+        text-align: center;
+        
+        
+        ul{
+            width: 1077px;
+            display:inline-table;
+            
+        }
+        li {
+            padding: 0 8% 0 0;
+            display:inline;
+        }
+    }
+}
+
+/*===ADMIN-PAGE===*/
+form {
+    padding: 2% 0;
+    p {
+       color: $darktext; 
+       text-align: center;
+    }
+    input[type=text] {
+        width: 80%;
+        margin: 0 0 3%;
+        padding: 1% 2%;
+        font-size: 0.9em;
+        text-align: center;
+    }
+    .okButton {
+        width: 30%;
+        text-transform: uppercase;
+        padding: 1% 0;
+        border: none;
+        border-radius: 10px;
+        background-color: #2C883F;
+        cursor: pointer;
+        margin: 0 auto;
+    }
+}
+/*LOGGED IN PAGE*/
+#logoutButton {
+    width: 30%;
+    font-size: 1em;
+    text-transform: uppercase;
+    padding: 2% 0;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: #B74C4C;
+    cursor: pointer;
+    margin: 0 35%;
+}
+.update-delete {
+    font-size: 1.6em;
+    text-align: center;
+    margin: 3% 0 1%;
+
+    span {
+        margin: 0 4%;
+        cursor: pointer;
+    }
+}
+h3 {
+@include h3verdana();
+text-align: center;
+position: relative;
+top: 10px;
+color: $darktext;
+}
+.add {
+    margin: 0 0 0 10%;
+    input[type=text] {
+        margin: 1% 0;
+        width: 80%;
+        font-size: 1.2em;
+    }
+    input[type=submit] {
+        margin: 3% 0 0 28%;
+        padding: 1.5% 0;
+        
+    }
+    #startDate, #startDateWork {
+        width: 37%;
+    }
+    #endDate, #endDateWork {
+        width: 37%;
+    }
+    #siteDescription {
+        width: 83.5%;
+        font-size: 1.2em; 
+        text-align: center;
+        @include kazimirLight();
+        color: $lighttext;
+    }
+}

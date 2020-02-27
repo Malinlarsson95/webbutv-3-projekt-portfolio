@@ -1,3 +1,20 @@
+<?php
+/*Starta session*/
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+/*Om session för loggedin inte existerar skickas man till inloggningssidan*/
+if(!isset($_SESSION['loggedin'])) {
+    header("location: admin.php");
+}
+/*Om knappen för logga ut nollställs sessions*/
+if(isset($_POST['logOut'])) {
+    session_unset();
+    header("location:admin.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -12,6 +29,7 @@
     <script src="https://kit.fontawesome.com/f02302bbd8.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!--======HEADER======-->
     <header>
         <img src="images/portrait.png" alt="porträtt av Malin Larsson" id="portrait">
         <h1>Malin Larsson</h1>
@@ -30,7 +48,7 @@
                 <div class="line"></div>
                 <p>
                     <span class="bold">Födelsedatum:</span>
-                    <span class="light"id="birthday">29 Oktober 1995</span>
+                    <span class="light" id="birthday">29 Oktober 1995</span>
                 </p>
                 <div class="line"></div>
                 <p>
@@ -158,8 +176,8 @@
                 <div class="line lastline"></div>
             </div>
             </article>
+            <!--Section "Design erfarenheter"-->
             <article class="sideArtFour">
-                <!--Section "Design erfarenheter"-->
                 <div class="makeTheMarginSmaller">
                 <h2>Design</h2>
                 <div class="line firstline"></div>
@@ -198,33 +216,60 @@
                 <div class="line lastline"></div>
             </div>
             </article>
+            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+                <input type="submit" name="logOut" value="Logga ut" id="logoutButton" />
+            </form>
         </div>
         <!--======MAINCONTENT======-->
         <div id="maincontent">
-            <article class="mainArt" id="mainArtOne">
-                <h2>Om mig</h2>
-                <p>
-                    Nulla purus massa, pellentesque ut convallis eget, fermentum eget ex. Aliquam magna nisi, imperdiet ac imperdiet ac, imperdiet vitae neque. Vestibulum justo mauris, tincidunt at libero id, pulvinar posuere est. Aenean non nunc justo. Cras placerat mauris mauris, vel congue ex tempus eu. Donec condimentum elementum ante, vitae malesuada ligula finibus vel. Morbi sagittis mi vel leo mattis elementum. Praesent vestibulum purus eu sapien laoreet, in dapibus velit elementum. Mauris euismod cursus sagittis. Pellentesque laoreet dui eros, dignissim aliquam diam condimentum et. Nam quis orci vehicula, faucibus ante sed, sagittis metus.
-                </p>
-            </article>
             <article class="mainArt" id="mainArtTwo">
                 <h2>Studier</h2>
                 <!--
                     HERE WILL STUDIES FROM DATABASE BE WRITTEN
                 -->   
             </article>
+            <h3>Lägg till studie</h3>
+                <div class="mainboxes">
+                <form class="add" action="loggedin.php" method="post" id="addStudy">
+                <input type="text" name ="educationName" id ="educationName" placeholder="Program/kurs"/><br>
+                <input type="text" name ="school" id ="school" placeholder="Skola"/><br>
+                <input type="text" name ="startDate" id ="startDate" placeholder="Start(åååå/mm)"/>
+                <input type="text" name ="endDate" id ="endDate" placeholder="Slut(åååå/mm)"/><br>
+                <input type="submit" name="addStudie" value="Lägg till" id="AddStudieButton" class="okButton" />
+                </form>
+                </div>
             <article class="mainArt" id="mainArtThree">
                 <h2>Arbeten</h2>
                 <!--
                     HERE WILL WORKS FROM DATABASE BE WRITTEN
                 -->  
             </article>
+            <h3>Lägg till arbete</h3>
+                <div class="mainboxes">
+                <form class="add" action="loggedin.php" method="post">
+                <input type="text" name ="workTitle" id ="workTitle" placeholder="Arbetstitel"/><br>
+                <input type="text" name ="workPlace" id ="workPlace" placeholder="Arbetsplats"/><br>
+                <input type="text" name ="startDateWork" id ="startDateWork" placeholder="Start(åååå/mm)"/>
+                <input type="text" name ="endDateWork" id ="endDateWork" placeholder="Slut(åååå/mm)"/><br>
+                <input type="submit" name="addWork" value="Lägg till" id="AddWorkButton" class="okButton" />
+                </form>
+                </div>
             <article class="mainArt" id="mainArtFour">
                 <h2>Skapade webbsidor</h2>
                 <!--
                     HERE WILL WEBSITES FROM DATABASE BE WRITTEN
                 -->  
             </article>
+            <h3>Lägg till webbsida</h3>
+                <div class="mainboxes">
+                <form class="add" action="loggedin.php" method="post">
+                <input type="text" name ="siteTitle" id ="siteTitle" placeholder="Namn på webbplats"/><br>
+                <input type="text" name ="siteUrl" id ="siteUrl" placeholder="Url"/><br>
+                <input type="text" name ="createdDate" id ="createdDate" placeholder="Skapad(åååå/mm)"/>
+                <textarea id="siteDescription" rows="4">Beskrivning av webbplatsen</textarea>
+                <input type="submit" name="addSite" value="Lägg till" id="AddSiteButton" class="okButton" />
+                </form>
+                </div>
         </div>
     </div>
     <!--======FOOTER=======-->
@@ -234,9 +279,7 @@
             <li><i class="fa-li fa fas fa-phone"></i>072-5501175</li>
             <li><i class="fa-li fa fas fa-envelope"></i><a href="mala1812@student.miun.se">mala1812@student.miun.se</a></li>
           </ul>
-
         </footer>
-    </div>
-    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
 </body>
 </html>
