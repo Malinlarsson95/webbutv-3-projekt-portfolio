@@ -26,6 +26,6 @@ För att minifiera filerna används "gulp uglify es"
 Filerna hämtas in, komprimeras och skickas till "pub/images".  
 Det paket jag använd heter "gulp-imagemin".
 * **SASS-task**
-Gör om scss-kod till css kod och lägger det i CSS-mappen i pub, om flera scss-filer skulle användas skulle dessa slås ihop. Minifierar även koden. 
+Gör om scss-kod till css kod och lägger det i CSS-mappen i pub, om flera scss-filer skulle användas skulle dessa slås ihop. Minifierar även koden. Paketen "gulp-sass" och "node-sass" har använts.
 
 För att man enkelt ska kunna sitta och utveckla sin sida utan att behöva ladda om sin webbbläsare för varje ändring man gör i någon fil har jag lagt in en browser-sync. Browser-sync känner då av när någon av filerna i "pub" mappen har ändrats och uppdaterar då webbläsaren automatiskt.
