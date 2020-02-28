@@ -228,6 +228,40 @@ header {
     .lastline {
         margin-bottom: 6%;
     }
+
+        /*The DOTS in Sidebar*/
+.dots {
+    display: flex;
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: $dotlightbg;
+    margin: 0 5px;
+    position: relative;
+    top: -30px;
+    left: 60%;
+ }
+ /*MAKES THE DOTS GREEN*/
+ #HTMLDotOne,#HTMLDotTwo,#HTMLDotThree,#HTMLDotFour,#HTMLDotFive,#CSSDotOne,#CSSDotTwo,#CSSDotThree,#CSSDotFour, #JSDotOne,#JSDotTwo,#JSDotThree,#PHPDotOne,#PHPDotTwo,#PHPDotThree,#PHPDotFour,#WPDotOne,#WPDotTwo,#WPDotThree,#WPDotFour,
+ #MySQLDotOne,#MySQLDotTwo,#MySQLDotThree,#CSharpDotOne,#CSharpDotTwo,#CSharpDotThree,#PSDotOne,#PSDotTwo,#PSDotThree, #PSDotFour, #XDDotOne,#XDDotTwo,#XDDotThree, #XDDotFour, #XDDotFive,#AIDotOne,#AIDotTwo,#AIDotThree
+  {
+     background-color: $dotgreenbg;
+ }
+}
+
+.makeTheMarginSmaller {
+    .line {
+        margin: -3% auto 1.2%;
+    }
+    .firstline {
+        margin-top: 6%;
+    }
+    .lastline {
+        margin-bottom: 6%;
+    }
+}
+
     /*===SIDEBAR - TABLET===*/
     @media screen and (min-width: $breakpoint-tablet) {
         margin: 0 auto;
@@ -334,38 +368,6 @@ header {
         #city {
             margin: 0 0 0 120px;
         }
-    }
-}
-/*The DOTS in Sidebar*/
-.dots {
-    display: flex;
-.dot {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: $dotlightbg;
-    margin: 0 5px;
-    position: relative;
-    top: -30px;
-    left: 60%;
- }
- /*MAKES THE DOTS GREEN*/
- #HTMLDotOne,#HTMLDotTwo,#HTMLDotThree,#HTMLDotFour,#HTMLDotFive,#CSSDotOne,#CSSDotTwo,#CSSDotThree,#CSSDotFour, #JSDotOne,#JSDotTwo,#JSDotThree,#PHPDotOne,#PHPDotTwo,#PHPDotThree,#PHPDotFour,#WPDotOne,#WPDotTwo,#WPDotThree,#WPDotFour,
- #MySQLDotOne,#MySQLDotTwo,#MySQLDotThree,#CSharpDotOne,#CSharpDotTwo,#CSharpDotThree,#PSDotOne,#PSDotTwo,#PSDotThree, #PSDotFour, #XDDotOne,#XDDotTwo,#XDDotThree, #XDDotFour, #XDDotFive,#AIDotOne,#AIDotTwo,#AIDotThree
-  {
-     background-color: $dotgreenbg;
- }
-}
-
-.makeTheMarginSmaller {
-    .line {
-        margin: -3% auto 1.2%;
-    }
-    .firstline {
-        margin-top: 6%;
-    }
-    .lastline {
-        margin-bottom: 6%;
     }
 }
 
