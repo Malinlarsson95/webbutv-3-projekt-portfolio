@@ -19,7 +19,7 @@ Vid **Delete** körs funktion för att läsa in id från anropet samt skicka in 
 **Json-format för att radera data:**  
 {"_id":"INT"}
 
-* **Works-tabellen:** https://e3c.se/webbutv/webbutv3/projekt/webservice/crud/studies.php  
+* **Works-tabellen:** https://e3c.se/webbutv/webbutv3/projekt/webservice/crud/works.php  
 **Json-format för att lägga till data:**  
 {"workTitle":"TITEL","workPlace":"ARBETSPLATS","startDate":"åååå/MM","endDate":"åååå/MM"}
 **Json-format för att ändra data:**  
@@ -27,7 +27,7 @@ Vid **Delete** körs funktion för att läsa in id från anropet samt skicka in 
 **Json-format för att radera data:**  
 {"_id":"INT"}
 
-* **Websites-tabellen:** https://e3c.se/webbutv/webbutv3/projekt/webservice/crud/studies.php  
+* **Websites-tabellen:** https://e3c.se/webbutv/webbutv3/projekt/webservice/crud/websites.php  
 **Json-format för att lägga till data:**  
 {"siteTitle":"TITEL","siteUrl":"URL","siteDescription":"BESKRIVNING","createdDate":"åååå/MM"}
 **Json-format för att ändra data:**  
